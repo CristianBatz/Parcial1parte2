@@ -2,13 +2,14 @@ def calcular_mcd(numeroA,numeroB):
     if numeroB == 0:
         return numeroA
     else:
+        print(f"mcd:{numeroA},{numeroB}")
         return calcular_mcd(numeroB, numeroA%numeroB)
 
 def cadena_repetir(cantidad,palabra,i=0):
     if i == cantidad:
         return 0
     else:
-        print(f"{palabra} \n")
+        print(f"{palabra}")
         return cadena_repetir(cantidad,palabra,i+1)
 
 def cantidad_letra(cadena,letra,i=0):
@@ -46,11 +47,14 @@ while opcion != 6:
     match opcion:
         case 1:
             print("=== Calculando MCD ===")
-            numeroA = int(input("Ingrese el primer numero: "))
+            try:
+                numeroA = int(input("Ingrese el primer numero: "))
+            except ValueError:
+                print("Opcion no valida")
+                continue
             numeroB = int(input("Ingrese el segundo numero: "))
             resultado = calcular_mcd(numeroA,numeroB)
             print(f"resultado: {resultado}")
-
 
         case 2:
             print("=== repetir cadena ===")
